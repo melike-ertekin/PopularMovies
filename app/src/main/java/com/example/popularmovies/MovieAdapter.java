@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.popularmovies.model.Movie;
+import com.example.popularmovies.modal.Movie;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -36,9 +36,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MovieAdapter.MyViewHolder holder, int position) {
+        Log.i("image", movieList.get(position).getPoster());
+        Picasso.get().load(movieList.get(position).getPoster()).into(holder.poster);
 
-        Picasso.get().load(movieList.get(position).getImage()).into(holder.image);
-        Log.i("image", movieList.get(position).getImage());
         holder.title.setText(movieList.get(position).getTitle());
 
     }
@@ -51,14 +51,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
-        ImageView image;
+        ImageView poster;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.title);
 
-            image = itemView.findViewById(R.id.image);
+            poster = itemView.findViewById(R.id.poster);
 
         }
 

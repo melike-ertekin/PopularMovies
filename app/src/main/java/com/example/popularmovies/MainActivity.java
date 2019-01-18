@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.popularmovies.model.Movie;
+import com.example.popularmovies.modal.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         List<Movie> movies = new ArrayList();
-        movies.add(new Movie("Harry Potter", "https://vignette.wikia.nocookie.net/harrypotter/images/c/c0/ALOExwKoxdkdeBvVi7NkaFl5Wa5.jpg/revision/latest?cb=20130803163017"));
-        movies.add(new Movie("Harry Potter", "https://vignette.wikia.nocookie.net/harrypotter/images/c/c0/ALOExwKoxdkdeBvVi7NkaFl5Wa5.jpg/revision/latest?cb=20130803163017"));
-        movies.add(new Movie("Harry Potter", "https://vignette.wikia.nocookie.net/harrypotter/images/c/c0/ALOExwKoxdkdeBvVi7NkaFl5Wa5.jpg/revision/latest?cb=20130803163017"));
-        movies.add(new Movie("Harry Potter", "https://vignette.wikia.nocookie.net/harrypotter/images/c/c0/ALOExwKoxdkdeBvVi7NkaFl5Wa5.jpg/revision/latest?cb=20130803163017"));
+        movies.add(new Movie("Harry Potter", "https://vignette.wikia.nocookie.net/harrypotter/images/c/c0/ALOExwKoxdkdeBvVi7NkaFl5Wa5.jpg/revision/latest?cb=20130803163017", "", "", ""));
+        movies.add(new Movie("Harry Potter", "https://vignette.wikia.nocookie.net/harrypotter/images/c/c0/ALOExwKoxdkdeBvVi7NkaFl5Wa5.jpg/revision/latest?cb=20130803163017", "", "", ""));
         // specify an adapter (see also next example)
         mAdapter = new MovieAdapter(this, movies);
         mRecyclerView.setAdapter(mAdapter);
