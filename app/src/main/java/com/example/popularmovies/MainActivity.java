@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.example.popularmovies.modal.Movie;
+import com.example.popularmovies.model.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,4 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int menuItem = item.getItemId();
+        if (menuItem == R.id.action_search)
+            Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_LONG).show();
+        return super.onOptionsItemSelected(item);
+    }
 }

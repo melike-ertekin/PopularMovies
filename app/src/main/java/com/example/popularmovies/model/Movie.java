@@ -1,4 +1,4 @@
-package com.example.popularmovies.modal;
+package com.example.popularmovies.model;
 
 public class Movie {
     private String title;
