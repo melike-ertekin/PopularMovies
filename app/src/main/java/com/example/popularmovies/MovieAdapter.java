@@ -1,23 +1,26 @@
 package com.example.popularmovies;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.example.popularmovies.activities.MovieDetail;
+import com.example.popularmovies.api.MovieServiceSettings;
 import com.example.popularmovies.model.Movie;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> {
-    private String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
+
     private LayoutInflater inflater;
     private List<Movie> movieList;
+    private int selectedMovieIndex;
 
     public MovieAdapter(Context ctx, List<Movie> moviesModelArrayList) {
 
@@ -36,15 +39,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MovieAdapter.MyViewHolder holder, int position) {
-        Log.i("image", IMAGE_BASE_URL + movieList.get(position).getPoster());
-        Picasso.get().load(IMAGE_BASE_URL + movieList.get(position).getPoster()).into(holder.poster);
-        // Log.i("tit", movieList.get(position).getTitle());
-        holder.title.setText(movieList.get(position).getTitle());
+        Log.i("image", MovieServiceSettings.IMAGE_BASE_URL + movieList.get(position).getPoster());
+        Picasso.get().load(MovieServiceSettings.IMAGE_BASE_URL + movieList.get(position).getPoster()).into(holder.poster);
+
         //Picasso.get().setLoggingEnabled(true);
         // Glide.with(holder.itemView)
         //       .load(IMAGE_BASE_URL + movieList.get(position).getPoster())
         //       .apply(RequestOptions.placeholderOf(R.color.colorPrimary))
         //      .into(holder.poster);
+
+
     }
 
     @Override
@@ -54,15 +58,26 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView title;
+        // TextView title;
         ImageView poster;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            title = itemView.findViewById(R.id.title);
 
             poster = itemView.findViewById(R.id.poster);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, MovieDetail.class);
+                    intent.putExtra("SELECTED_MOVIE", movieList.get(getAdapterPosition()));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            });
 
         }
 

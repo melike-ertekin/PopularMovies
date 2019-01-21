@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">PopularMovies</string>
+    <string name="app_name">PopularMoviesApp</string>
 
-    <string name="Search">Search</string>
+    <!-- Menu options -->
+    <string name="popular_movies">Popular Movies</string>
+    <string name="highest_rated_movies">Highest Rated Movies</string>
+    <string name="title_activity_movie_detail">MovieDetail</string>
 </resources>
