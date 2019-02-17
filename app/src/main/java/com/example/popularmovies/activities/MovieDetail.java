@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.example.popularmovies.R;
 import com.example.popularmovies.api.MovieServiceSettings;
@@ -16,7 +17,21 @@ public class MovieDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.card);
+        setContentView(R.layout.movie_detail);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.movieDetailToolbar);
+        setSupportActionBar(toolbar);
+
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+
+
+
+
+
+
         Bundle extras = getIntent().getExtras();
         Movie m = (Movie) getIntent().getSerializableExtra("SELECTED_MOVIE");
 
@@ -30,6 +45,7 @@ public class MovieDetail extends AppCompatActivity {
         ImageView poster = findViewById(R.id.poster);
 
         Picasso.get().load(MovieServiceSettings.IMAGE_BASE_URL + m.getPoster()).into(poster);
+        toolbar.setTitle(m.getTitle());
         title.setText(m.getTitle());
         description.setText(m.getDescription());
         average_vote.setText(String.valueOf(m.getVote_avg()));
