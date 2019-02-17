@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * {@link MovieList} list of movies
+ *
+ */
 public class MovieList {
 
     @SerializedName("results")

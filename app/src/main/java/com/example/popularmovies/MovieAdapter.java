@@ -15,7 +15,10 @@ import com.example.popularmovies.model.Movie;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
+/**
+ * {@link MovieAdapter} is a {@link RecyclerView.Adapter} that can provide the layout for
+ * each list item based on a data source which is a list of {@link Movie} objects.
+ */
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> {
 
     private LayoutInflater inflater;
@@ -58,7 +61,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        // TextView title;
         ImageView poster;
 
         public MyViewHolder(View itemView) {

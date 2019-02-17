@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+/**
+ * {@link Movie} represents a movie.
+ *
+ */
 public class Movie implements Serializable {
     @SerializedName("title")
     private String title;

@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
 
 
-        mLayoutManager = new GridLayoutManager(this, 2);
+        mLayoutManager = new GridLayoutManager(this, 3);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         getPopularMovies();

@@ -6,6 +6,9 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+/**
+ * {@link GetPopularMoviesService} includes http call to get popular movies.
+ */
 public interface GetPopularMoviesService {
 
 
